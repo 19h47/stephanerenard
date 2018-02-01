@@ -1,0 +1,80 @@
+/**
+ * COMPONENTS
+ */
+
+.navigation
+{
+	margin-top: 7rem;
+	text-align: center;
+
+	&.pagination
+	{
+		.nav-links
+		{
+			.page-numbers
+			{
+				position: relative;
+				padding: 1.1rem;
+				margin: 0 0.25rem;
+				display: inline-block;
+				@include size(31px);
+				background-color: map-get($colors, cyan-light-grayish);
+				border-radius: ((31/2) * 1px);
+				color: map-get( $colors, gray-very-dark );
+				font:
+				{
+					size: 1.2rem;
+				}
+				vertical-align: middle;
+				z-index: 4;
+
+				&.current
+				{
+					background-color: map-get( $colors, blue-very-dark );
+					color: map-get( $colors, white);
+				}
+
+				&.prev,
+				&.next
+				{
+					background: none!important;
+					color: map-get( $colors, gray-light );
+				}
+
+				.prev
+				{
+
+					&-icon
+					{
+						display: block;
+						@include size(100%);
+						background:
+						{
+							image: url('#{$svg-dir}stephanerenard_prev.svg');
+							position: center;
+							repeat: no-repeat;
+							size: 7px 11px;
+						}
+					}
+				}
+
+				.next
+				{
+
+					&-icon
+					{
+						display: block;
+						@include size(100%);
+						background:
+						{
+							image: url('#{$svg-dir}stephanerenard_next.svg');
+							position: center;
+							repeat: no-repeat;
+							size: 7px 11px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

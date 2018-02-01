@@ -1,0 +1,101 @@
+/**
+ * PAGE
+ */
+
+.page-template
+{
+	&__introduction
+	{
+		padding:
+		{
+			bottom: 6rem;
+			top: 6rem;
+		}
+
+		&__inner
+		{
+			margin:
+			{
+				left: percentage(60/710);
+				right: percentage(60/710);
+			}
+		}
+
+		&__text
+		{
+			font:
+			{
+				size: 1.5rem;
+			}
+			line-height: (23/15);
+		}
+	}
+}
+
+.#{map-get($namespaces,page)}
+{
+	&__two-columns
+	{
+		margin-bottom: 5rem;
+		padding:
+		{
+			left: percentage(60/1420);
+			right: percentage(60/1420);
+
+		}
+		
+		&__article
+		{
+			color: map-get($colors, red-very-dark-grayish);
+			float: left;
+			padding: 
+			{
+				left: percentage(60/1420);
+				right: percentage(60/1420);
+			}
+			width: 50%;
+
+			h4
+			{
+				color: map-get($colors, blue-very-dark);
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	&__one-column
+	{
+		margin-bottom: 5rem;
+		
+		&__inner
+		{
+			padding:
+			{
+				bottom: 7rem;
+				top: 7rem;
+			}
+			color: map-get($colors, red-very-dark-grayish);
+			column-count: 3;
+			column-width: percentage(356/1420);
+
+			h1, h2, h3, h4, h5, h6
+			{
+				color: map-get($colors, blue-very-dark);
+				column-span: all;
+			}
+
+			h4
+			{
+				text-transform: uppercase;
+			}
+
+			p:first-of-type
+			{
+				margin:
+				{
+					top: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,354 @@
+/**
+ * FOOTER
+ */
+
+
+.site-footer
+{
+	&__content // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	{
+		display: table;
+		width: 100%;
+		// min-height: 726px;
+		table-layout: fixed;
+
+		&--right
+		{
+			display: table-cell;
+			height: 100%;
+			width: 100%;
+		}
+
+		&--left
+		{
+			display: table-cell;
+			height: 100%;
+			width: 100%;
+
+			&--top
+			{
+				position: relative;
+				padding-top: percentage(640/706);
+				// padding-top: 100%;
+				width: 100%;
+
+				@include from('sm')
+				{
+					padding-top: percentage(391/710);
+				}
+
+				&__inner
+				{
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					top: 0;
+					z-index: 5;
+
+					@include at('xs')
+					{
+						font-size: 0;
+					}
+
+					&__column
+					{
+						height: 100%;
+
+						@include at('xs')
+						{
+							display: inline-block;
+							height: percentage(482/640);
+							width: 100%;
+
+							&:first-child
+							{
+								height: percentage(158/640);
+							}
+						}
+
+						&.has-background
+						{
+							@include from('sm')
+							{
+								background:
+								{
+									image: url('#{$png-dir}stephanerenard__background-img-02.png');
+									position: -10rem 4rem;
+									repeat: no-repeat;
+									size: 317px 488px;
+								}
+							}
+						}
+
+						&__inner
+						{
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 50%;
+							transform: translate(0, -50%);
+
+							&__title
+							{
+								margin:
+								{
+									bottom: 0;
+									top: 0;
+								}
+								font: 
+								{
+									size: 4rem;
+								}
+								text-align: center;
+
+								@include from('sm')
+								{
+									text-align: left;
+								}
+
+								@include from('hd')
+								{
+									margin:
+									{
+										bottom: 0;
+									}
+								}
+							}
+	
+							// SOCIAL
+							&__social
+							{
+								margin:
+								{
+									top: 1rem;
+								}
+								text-align: center;
+
+								@include from('sm')
+								{
+									text-align: left;
+								}
+
+								@include from('hd')
+								{
+									margin: 
+									{
+										top: 0;
+									}
+									text-align: left;
+								}
+
+								&__link
+								{
+									display: inline-block;
+									margin: 
+									{
+										right: 2rem;
+									}
+
+									&:hover
+									{
+										svg
+										{
+											fill: rgba( map-get( $colors, white), 0.5);
+										}
+									}
+								}
+							}
+						}
+
+						&__logo
+						{
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							right: 0;
+							top: 0;
+							margin: auto;
+							height: auto;
+							width: 7.3rem;
+
+							@include from('sm')
+							{	
+								margin: percentage(45/355) 0 auto percentage(237/355);
+								width: percentage(83/355);
+							}
+						}
+
+						&__text
+						{
+							display: block;
+							color: map-get($colors, blue-very-dark);
+							font:
+							{
+								size: 2.2rem;
+								style: italic;
+								weight: map-get( $font-weight, regular);
+							}
+							line-height: (36.55/22);
+							text-align: center;
+
+							@include from('sm')
+							{
+								font:
+								{
+									size: 1.8rem;
+								}
+								line-height: (26/18);
+								text-align: left;
+							}
+						}
+
+						&__address
+						{
+							display: block;
+							color: map-get($colors, white);
+							font:
+							{
+								size: 3rem;
+								weight: map-get($colors, regular);
+							}
+							@include letter-spacing(20);
+							line-height: (32/30);
+
+							text:
+							{
+								align: center;
+								decoration: underline;
+							}
+
+							@include from('sm')
+							{
+								font:
+								{
+									size: 1.8rem;
+								}
+								line-height: (22/18);
+								text:
+								{
+									align: left;
+									decoration: none;
+								}
+							}
+						}
+
+						&__phone
+						{
+							display: block;
+							margin-top: 0.5rem;
+							color: map-get($colors, white);
+							font:
+							{
+								size: 3.092rem;
+								weight: map-get($font-weight, bold);
+							}
+							@include letter-spacing(20);
+							line-height: (42.17/30.92);
+
+							text-align: center;
+
+							@include from('sm')
+							{
+								margin-top: 0;
+								text-align: left;
+
+								font:
+								{
+									size: 2.2rem;
+								}
+								line-height: (30/22);
+							}
+						}
+
+						&__email
+						{
+							display: block;
+							margin-top: 1rem;
+							color: map-get($colors, blue-very-dark);
+							font:
+							{
+								size: 1.8rem;
+								weight: map-get( $font-weight, bold);
+							}
+							line-height: (26/18);
+
+							text-align: center;
+
+							@include from('sm')
+							{
+								margin-top: 0;
+								text-align: left;
+							}
+						}
+					}
+				}
+			}
+
+			&--bottom
+			{
+				position: relative;
+				padding-top: percentage(334/710);
+				width: 100%;
+
+				&__inner
+				{
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					top: 0;
+
+					&__column
+					{
+						height: 100%;
+						overflow: hidden;
+
+						&__img
+						{
+							position: absolute;
+							bottom: -5px;
+							left: -5px;
+							right: -5px;
+							top: -5px;
+							background:
+							{
+								position: center;
+								size: cover;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__copyright // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	{
+		padding: 
+		{
+			bottom: 5rem;
+			top: 5rem;
+		}
+
+		&--left
+		{
+			color: map-get($colors, red-very-dark-grayish);
+			font: 
+			{
+				size: 1.3rem;
+			}
+			line-height: (18/13);
+		}
+
+		&--right
+		{
+			color: rgba( map-get($colors, red-very-dark-grayish), 0.5);
+			font: 
+			{
+				size: 1.2rem;
+			}
+			line-height: (18/12);
+		}
+	}
+}

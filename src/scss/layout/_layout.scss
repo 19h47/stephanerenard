@@ -1,0 +1,618 @@
+/**
+ * LAYOUT
+ */
+
+.has-rounded-edge
+{
+	@include from('sm')
+	{
+		border:
+		{
+			top-left-radius: 8.2rem;
+			bottom-right-radius: 8.2rem;
+		}
+		overflow: hidden;
+	}
+}
+
+.has-rounded-edge-top-only
+{
+	@include from('sm')
+	{
+		border:
+		{
+			top:
+			{
+				left:
+				{
+					radius: 8.2rem;
+				}
+			}
+		}
+		overflow: hidden;
+	}
+}
+		
+.site
+{
+	// CONTAINER
+	&-container
+	{
+		width: 100%;
+		max-width: $container-width;
+		padding: 0;
+
+		@include from('sm')
+		{
+			margin: 0 auto;
+			padding: 0 5rem;
+		}
+
+		@include from('md')
+		{
+			padding: 0 9rem;
+		}
+	}
+
+	// CONTENT
+	&-content
+	{
+
+	}
+	
+	// ASIDE
+	&-aside
+	{
+
+	}
+
+	// SECTION
+	&-section
+	{
+		margin:
+		{
+			bottom: 7rem;
+		}
+
+		@at-root .page-introduction
+		{
+			padding:
+			{
+				bottom: 10rem;
+				top: 10rem;
+			}
+		}
+
+		@at-root .page-mon-approche .page-introduction &__inner
+		{
+			min-height: 62.6rem;
+		}
+
+		@at-root .page-consultations-tarifs .page-introduction &__inner
+		{
+			min-height: 43.4rem;
+		}
+
+		&.page-pour-aller-plus-loin
+		{
+			border:
+			{
+				color: map-get( $colors, cyan-light-grayish );
+				style: solid;
+				width: 6px;
+			}
+			
+			@include at('xs')
+			{
+				margin: 
+				{
+					bottom: 0;
+				}
+			}
+		}
+
+		&.home-description
+		{
+			position: relative;
+			padding: 
+			{
+				bottom: 8.2rem;
+				top: 8.2rem;
+			}
+		}
+
+		.page-introduction
+		{
+			position: relative;
+
+			&__paragraph
+			{
+				p
+				{
+					font:
+					{
+						size: 1.5rem;
+					}
+					@include letter-spacing(20);
+					line-height: (23/15);
+				}
+
+				a
+				{
+					font-weight: bold;
+					text-decoration: underline;
+					
+				}
+			}
+
+			&__img
+			{
+				&--first
+				{
+					position: absolute;	
+					bottom: percentage(83/710);
+					left:0;
+					right: 0;
+					top: percentage(83/710);
+					background:
+					{
+						position: center;
+						repeat: no-repeat;
+						size: cover;
+					}
+					z-index: 2;
+				}
+				&--second
+				{
+					position: absolute;
+					bottom: 0;
+					left:0;
+					right: 0;
+					top: 0;
+					background:
+					{
+						position: center;
+						repeat: no-repeat;
+						size: cover;
+					}
+					z-index: 1;
+				}
+
+				&--single
+				{
+					position: absolute;
+					bottom: 0;
+					left:0;
+					right: 0;
+					top: 0;
+					background:
+					{
+						position: center;
+						repeat: no-repeat;
+						size: cover;
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.page-mon-parcours
+{
+	&--right
+	{
+		padding:
+		{
+			left: percentage(100/1420);
+		}
+
+		&__content
+		{
+			margin:
+			{
+				top: 3rem;
+			}
+
+			strong
+			{
+				font:
+				{
+					weight: map-get( $font-weight, bold);
+				}
+			}
+		}
+	}
+}
+
+.page-pour-aller-plus-loin
+{
+	padding:
+	{
+		bottom: 3rem;
+		top: 7rem;
+	}
+
+	&__content
+	{
+		margin:
+		{
+			bottom: 9rem;
+		}
+
+		@include from('sm')
+		{
+			column-count: 3;
+			column-width: percentage(356/1420);
+		}
+		
+		p:first-child
+		{
+			margin:
+			{
+				top: 0;
+			}
+		}
+
+		p:last-child
+		{
+			margin:
+			{
+				bottom: 0;
+			}
+		}
+	}
+}
+
+.consultations-rates
+{
+	margin:
+	{
+		bottom: 4rem;
+		top: 7rem;
+	}
+
+	&__title
+	{
+		margin: 0;
+	}
+
+	&__text
+	{
+		margin: 0.5rem 0 0 0;
+		font:
+		{
+			size: 1.5rem;
+			style: italic;
+		}
+		line-height: (22/15);
+	}
+
+	&__btn
+	{
+		@include from('sm')
+		{
+			margin:
+			{
+				top: 9rem;
+			}	
+		}
+	}
+}
+
+.tarifs
+{
+	
+	margin:
+	{
+		bottom: 0;
+	}
+
+	@include from('sm')
+	{
+		padding:
+		{
+			bottom: 2.5rem;
+		}	
+	}
+
+	&__title
+	{
+		
+		text-align: center;
+
+		@include from('sm')
+		{
+			margin:
+			{
+				top: 5rem;
+			}
+			text-align: left;
+		}
+	}
+
+	&__img
+	{
+		margin:
+		{
+			top: - percentage(130/592);
+		}
+		padding:
+		{
+			right: percentage(60/474);
+		}
+	}
+}
+
+.consultations-prices
+{
+	background:
+	{
+		color: map-get($colors, cyan-slightly-desaturated);
+	}
+	color: map-get( $colors, blue-very-dark);
+	
+	@include at('xs')
+	{
+		margin-bottom: 0;
+	}
+
+	@include from('sm')
+	{
+		background:
+		{
+			color: transparent;
+		}
+	}
+	&__text
+	{
+		margin: 
+		{
+			bottom: 3rem;
+			top: 3rem;
+		}
+		font:
+		{
+			size: 1.5rem;
+		}
+		line-height: (23/15);
+		@include letter-spacing(20);
+		text-align: center;
+
+		@include from('sm')
+		{
+			text-align: left;
+		}
+
+		p
+		{
+			margin: 0;
+		}
+
+		h3
+		{
+			margin: 0;
+			font:
+			{
+				size: 1.8rem;
+				weight: map-get($font-weight, bold);
+			}
+			text:
+			{
+				transform: uppercase;
+			}
+			@include letter-spacing(200);
+		}
+		
+		strong
+		{
+			font:
+			{
+				weight: map-get($font-weight, bold);
+			}
+		}
+
+		em
+		{
+			@include letter-spacing(0);
+			line-height: (22/15);
+		}
+	}
+
+	&__footer
+	{
+		margin: 
+		{
+			top: 4rem;
+		}
+
+		&__inner
+		{
+			border: 6px solid map-get($colors, white);
+			padding:
+			{
+				bottom: 4rem;
+				left: percentage(60/1420);
+				right: percentage(60/1420);
+				top: 4rem;
+			}
+			text-align: center;
+
+			@include from('sm')
+			{
+				border: none;
+				text-align: left;
+			}
+
+			h3
+			{
+				margin: 0;
+				font:
+				{
+					size: 1.8rem;
+					weight: map-get($font-weight, bold);
+				}
+				text:
+				{
+					transform: uppercase;
+				}
+				@include letter-spacing(200);
+			}
+
+			p
+			{
+				margin: 0;
+			}
+
+			em
+			{
+				@include letter-spacing(0);
+				line-height: (22/15);
+			}
+
+			strong
+			{
+				font:
+				{
+					weight: map-get($font-weight, bold);
+				}
+			}
+		}	
+	}
+}
+
+
+// BACKGROUND COLUMN
+.site-background
+{
+	padding: 0 9rem;
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
+    right: 50%;
+    top: 0;
+    height: 100%;
+    max-width: $container-width;
+    transform: translate(50%, 0);
+    z-index: 4;
+
+	&__inner
+	{
+
+		height: 100%;
+	}
+
+	&__column
+	{
+		$border-column: 1px solid rgba(map-get($colors, gray-light), 1);
+
+		height: 0;
+		border-left: $border-column;
+		opacity: .8;
+    	transition: 1.3s ease;
+    
+		&:first-child
+		{
+			border-left: none;
+		}
+
+		&:last-child
+		{
+			border-right: none;
+		}
+		
+		// When DOM is ready
+		@at-root
+		{
+			.is-ready &
+			{
+				height: 100%;
+				opacity: .2;
+			}
+		}
+	}
+
+}
+
+.single
+{
+	&-header
+	{
+		&__inner
+		{
+			padding:
+			{
+				bottom: 16rem;
+				top: 7rem;
+			}
+
+			&__meta
+			{
+				margin-top: 5rem;
+			}
+		}
+	}
+
+	&-hero-image
+	{
+		position: relative;
+		height: 46rem;
+		margin:
+		{
+			top: -12.2rem;
+		}
+		overflow: hidden;
+
+		& > div
+		{
+			@extend %position-absolute;
+		}
+
+		&__img
+		{
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			transform: translate3d(50%, -50%, 0);
+		}
+	}
+
+	&-content
+	{
+		&__inner
+		{
+			color: map-get($colors, red-very-dark-grayish);
+			margin: 
+			{
+				bottom: 5rem;
+			}
+			font:
+			{
+				size: 1.6rem;
+			}
+			@include letter-spacing(20);
+			line-height: (18/16);
+
+			h2
+			{
+				color: map-get($colors, blue-very-dark);
+				font:
+				{
+					size: 2.1rem;
+				}
+				line-height: (20/21);
+				text-transform: uppercase;
+			}
+
+			a
+			{
+				font-weight: bold;
+				
+				&:hover
+				{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

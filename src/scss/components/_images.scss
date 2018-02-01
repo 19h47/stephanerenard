@@ -1,0 +1,49 @@
+/**
+ * COMPONENTS: IMAGES
+ */
+
+ %img
+ {
+
+ }
+
+.section-single-image
+{
+	margin: 
+	{
+		bottom: 20rem;
+	}
+}
+
+.fluid
+{
+	display: block;
+	height: auto;
+	width: 100%;
+
+	&--full
+	{
+		height: auto;
+		max-width: 100%;
+		margin:
+		{
+			bottom: 2.5rem;
+			top: 2.5rem;
+		}
+
+		@include from('sm')
+		{
+			margin: 0;
+		}
+	}
+}
+
+.row--full-mobile
+{
+	@include at('xs')
+	{
+	    flex: none;
+	    display: block;
+	    margin: 0 -5.2rem;
+	}
+}

@@ -1,0 +1,162 @@
+/**
+ * HOME
+ */
+
+.site-title
+{
+	margin:
+	{
+		top: 5rem;
+	}
+	font:
+	{
+		size: 6.4rem;
+	}
+	line-height: (49.54/64);
+
+	@include from('sm')
+	{
+		margin:
+		{
+			left: percentage(119/710);
+			top: 8rem;
+		}
+	}
+}
+
+.#{ map-get( $namespaces, home )}
+{
+	.description
+	{
+		margin:
+		{
+			right: percentage(39/640);
+		}
+		padding:
+		{
+			bottom: 2.5rem;
+			left: percentage(39/640);
+			top: 2.5rem;
+		}
+		background-color: map-get($colors, white);
+		border:
+		{
+			top:
+			{
+				right:
+				{
+					radius: 8.2rem;
+				}
+			}
+    		bottom:
+    		{
+    			right:
+    			{
+    				radius: 8.2rem;
+    			}
+    		}
+    	}
+    	text-align: center;
+
+    	@include from('sm')
+    	{
+    		margin:
+    		{
+    			right: 0;
+    		}
+			padding:
+			{
+				left: percentage(119/710);
+			}
+			text-align: left;
+    	}
+	}
+
+	&-description
+	{
+		&__right
+		{
+			position: absolute;
+			top: 0;
+		    right: 0;
+		    bottom: 8.2rem;
+		}
+
+		&__background-image
+		{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: 0;
+			background:
+			{
+				image: url('#{$png-dir}stephanerenard__background-img-01.png');
+				position: 300px 0;
+				repeat: no-repeat;
+				size: 100% auto;
+			}
+			z-index: 2;
+		}
+
+		&__subtitle
+		{
+			
+		}
+
+		&__profession
+		{
+			
+			font:
+			{
+				family: $font-body-family;
+				size: 2.8rem;
+				weight: map-get($font-weight, light);
+			}
+			line-height: (35/28);
+		}
+
+		&__img
+		{
+			position: absolute;
+		    right: 0;
+		    bottom: 0;
+		    // transform: translate3d(0, -50%, 0);
+			width: percentage(474/710);
+			height: auto;
+			// margin: auto;
+		}
+
+		&__text
+		{
+			margin:
+			{
+				left: percentage(39/640);
+				right: percentage(39/640);
+				top: 3.5rem;
+			}
+		    font:
+		    {
+		        size: 1.5rem;
+		    }
+		    @include letter-spacing(20);
+		    line-height: (23/15);
+		    text-align: center;
+
+		    @include from('sm')
+		    {
+		    	margin:
+				{
+					left: percentage(119/710);
+					right: 0;
+				}
+				text-align: left;	
+		    }
+
+		    p
+		    {
+		    	margin: 0;
+		    }
+		}
+	}
+}

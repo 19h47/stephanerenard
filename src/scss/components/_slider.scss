@@ -1,0 +1,24 @@
+/**
+ * SLIDER
+ */
+
+.slider
+{	
+	.js &
+	{
+		display: none;
+
+		&--is-current
+		{
+			display: block !important;
+		}
+	}
+
+	&__button
+	{
+		&--is-current
+		{
+
+		}
+	}
+}

@@ -1,0 +1,150 @@
+/**
+ * HOME: ACTUALITY
+ */
+
+.actuality // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+{
+	&__header
+	{
+
+		@include from('sm')
+		{
+			padding: 
+			{
+				bottom: 6rem;
+			}
+		}
+	}
+
+	&__title
+	{
+		margin:
+		{
+			bottom: 6rem;
+			top: 6rem;
+		}
+		text-align: center;
+
+		@include from('sm')
+		{
+			margin:
+			{
+				bottom: 0;
+				top: 5rem;
+			}
+			text-align: left;
+		}
+	}
+
+	&__content
+	{
+		@include from('sm')
+		{
+			margin: 
+			{
+				top: -4rem;
+			}
+		}
+	}
+
+	&__article
+	{
+		margin:
+		{
+			bottom: 4rem;
+			top: 6rem;
+		}
+
+		@include from('sm')
+		{
+			margin:
+			{
+				top: 0;
+			}
+			padding:
+			{
+				left: percentage(60/474);
+				right: percentage(60/474);
+			}
+		}
+
+		&__header
+		{
+			min-height: 4rem;
+		}
+
+		&__content
+		{
+			text-align: center;
+
+			@include from('sm')
+			{
+				padding:
+				{
+					left: percentage(60/356);
+				}
+				text-align: left;
+			}
+
+			&__title
+			{
+				display: block;
+				margin:
+				{
+					bottom: 2rem;
+					top: 3.5rem;
+				}
+			}
+
+			&__excerpt
+			{
+				font:
+				{
+					size: 1.6rem;
+				}
+				line-height: (21/16);
+			}
+		}
+
+		&__footer
+		{
+			font:
+			{
+				size: 1.3rem;
+			}
+			line-height: (26/13);
+
+			&__date{}
+			&__counter
+			{
+				font:
+				{
+					weight: map-get( $font-weight, bold);
+				}
+				text-align: left;
+
+				&::before
+				{
+					display: inline-block;
+					width: 30px;
+					height: 100%;
+					margin: 
+					{
+						bottom: 0;
+						left: 10px;
+						right: 5px;
+						top: 0;
+					}
+					background: 
+					{
+						image: url('#{$svg-dir}stephanerenard_share.svg');
+						position: right center;
+						repeat: no-repeat;
+						size: auto 13px;
+					}
+					content: '•';
+				}
+			}
+		}
+	}
+}

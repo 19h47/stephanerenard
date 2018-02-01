@@ -1,0 +1,185 @@
+/**
+ * BUTTONS
+ */
+
+%button-reset
+{
+	display: inline-block;
+	background: none;
+	border: 
+	{
+		width: 0;
+	}
+	color: inherit;
+	cursor: pointer;
+}
+
+$base-font-size-button: 16px; 
+
+%button
+{
+	padding: 
+	{
+		top: ((9/strip-unit($base-font-size-button)) * 1em); 
+		right: ((40/strip-unit($base-font-size-button)) * 1em);
+		bottom: ((9/strip-unit($base-font-size-button)) * 1em);
+		left: ((40/strip-unit($base-font-size-button)) * 1em);
+	}
+	border: {
+		radius: (20/strip-unit($base-font-size-button)) * 1em;
+		width: 1px;
+	}
+	cursor: pointer;
+	line-height: (22/strip-unit($base-font-size-button));
+	outline: none;
+	text-align: center;
+	transition: 0.3s ease;
+}
+
+.btn-reset
+{
+	@extend %button-reset;
+}
+
+.btn
+{
+	position: relative;
+	// z-index: 2;
+	@extend %button;
+
+	&--decor-after
+	{
+		display: inline-block;
+		// vertical-align: middle;
+
+		svg
+		{
+			display: inline-block;
+			margin: 
+			{
+				top: .2rem;
+				left: 2rem;
+			}
+			height: ((16/strip-unit($base-font-size-button)) * 1em);
+			width: ((9/strip-unit($base-font-size-button)) * 1em);
+			transition: .3s ease;
+			vertical-align: top;
+
+			use
+			{
+				fill: currentColor;
+				transition: 0.3s ease;
+			}
+
+			@at-root .btn:hover &
+			{
+				transform: translateX(1rem);
+			}
+		}
+
+		&.is-rotate
+		{
+			svg
+			{
+				transform: rotate(90deg);
+
+				@at-root .btn:hover &
+				{
+					transform: translateY(.5rem) rotate(90deg);
+				}
+			}
+		}
+	}
+
+	&--blue-very-dark
+	{
+		display: inline-block;
+		background-color: map-get($colors, blue-very-dark);
+		border:
+		{
+			color: map-get($colors, blue-very-dark);
+			style: solid;
+			width: 1px;
+		}
+		color: map-get($colors, white);
+
+		&:hover
+		{
+			background-color: transparent;
+			color: map-get($colors, blue-very-dark);
+
+			.btn--decor-after
+			{
+				svg
+				{
+					use
+					{
+						fill: map-get($colors, blue-very-dark);
+					}
+				}
+			}
+		}
+	}
+
+	&--cyan-slightly-desaturated
+	{
+		display: inline-block;
+		background-color: map-get($colors, cyan-slightly-desaturated);
+		border:
+		{
+			color: map-get($colors, cyan-slightly-desaturated);
+			style: solid;
+			width: 1px;
+		}
+		color: map-get($colors, white);
+
+		&:hover
+		{
+			background-color: transparent;
+			color: map-get($colors, cyan-slightly-desaturated);
+
+			.btn--decor-after
+			{
+				svg
+				{
+					use
+					{
+						fill: map-get($colors, cyan-slightly-desaturated);
+					}
+				}
+			}
+		}
+	}
+
+	&--actuality
+	{
+	    display: inline-block;
+		padding: 6rem 0 0 0;
+    	vertical-align: middle;
+	}
+
+	&--description
+	{
+		margin:
+		{
+			top: 3rem;
+		}
+		text-decoration: none!important;
+
+		@at-root .home &
+		{
+			margin:
+			{
+				left: 0;
+			}
+
+			@include from('sm')
+			{
+				margin:
+				{
+					left: percentage(119/710);
+				}
+			}
+		}
+	}
+}

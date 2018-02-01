@@ -1,0 +1,71 @@
+/**
+ * HEADER: LOGO
+ */
+
+.#{map-get( $namespaces,site )}
+{
+	// LOGO ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+	&-logo
+	{
+		&__link
+		{
+			display: block;
+			text-align: left;
+
+			@at-root .#{ map-get( $namespaces, home )} &
+			{
+				margin:
+				{
+					top: 1rem;
+				}
+
+				@include from('sm')
+				{
+					margin:
+					{
+						bottom: -7.4rem;
+						top: 2.4rem;
+					}
+				}
+			}
+
+			@at-root .#{ map-get( $namespaces, page )} &,
+			.#{ map-get( $namespaces, blog )} &,
+			.#{ map-get( $namespaces, single-post )} &
+			{
+				margin:
+				{
+					top: 1rem;
+				}
+			}
+			
+		}
+
+		&__img
+		{
+			@at-root .#{ map-get( $namespaces, page )} &,
+			.#{ map-get( $namespaces, blog )} &,
+			.#{ map-get( $namespaces, single-post )} &
+			{
+				height: 5.8rem;
+				width: auto;
+			}
+
+			@at-root .home &
+			{
+			    width: 100%;
+			    max-width: 15rem;
+    			height: auto;
+			}
+
+			@include at('xs')
+			{
+				@at-root .#{ map-get( $namespaces, home )} &
+				{
+					height: 5.8rem;
+					width: auto;
+				}
+			}
+		}
+	}
+}

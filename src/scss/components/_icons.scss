@@ -1,0 +1,30 @@
+/**
+ * ICONS
+ */
+
+.icon
+{
+	&--consultations-rates
+	{
+	    width: 59px;
+    	max-height: 51px;
+    	margin: 
+    	{
+    		bottom: 3rem;
+    	}
+
+		& use
+		{
+			fill: map-get($colors, cyan-slightly-desaturated);
+		}
+	}
+
+	&--social
+	{
+		display: inline-block;
+		max-height: 18px;
+		max-width: 18px;
+		fill: map-get($colors, white);
+		transition: 0.3s ease;
+	}
+}

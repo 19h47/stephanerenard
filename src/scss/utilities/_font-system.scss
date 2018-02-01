@@ -1,0 +1,22 @@
+/**
+ * UTILITIES: FONT SYSTEM
+ */
+
+.font-italic
+{
+	font:{
+		style: italic;
+	}
+}
+
+.font
+{
+    @each $name, $value in $font-weight
+    {
+
+        &-#{$name}
+        {
+            font-weight: $value;
+        }
+    }
+}
