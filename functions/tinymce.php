@@ -1,7 +1,7 @@
 <?php
 // https://premium.wpmudev.org/blog/customizing-wordpress-post-editor/
 add_filter("mce_buttons_2", "tinymce_enable_more_buttons");
-function tinymce_enable_more_buttons($buttons) {
+function tinymce_enable_more_buttons( $buttons ) {
 
 	// $buttons[] = 'fontselect';
 	$buttons[] = 'fontsizeselect';

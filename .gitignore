@@ -7,8 +7,8 @@ npm-debug.log
 /src/jpg/
 /src/pdf/
 /src/mockup/
-sft-config.json.dev
-sft-config.json
+sftp-config.json.dev
+sftp-config.json
 *.sublime-workspace
 
 #Update a gitignore http://stackoverflow.com/a/1139797
