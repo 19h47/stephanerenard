@@ -5,7 +5,7 @@
 		<div class="col-xs-6 col-xs-offset-3 text-xs-center color-blue-very-dark">
 			<div class="page-template__introduction__inner">
 
-				<?php the_title('<h1 class=" is-on-top">', '</h1>'); ?>
+				<?php the_title( '<h1 class="is-on-top">', '</h1>' ); ?>
 				<div class="page-template__introduction__text is-on-top text-xs-center">
 					<?php the_content(); ?>
 
@@ -17,18 +17,16 @@
 
 <div class="site-section">
 
-	<?php if( have_rows('content') ):
-
-	    while ( have_rows('content') ) : the_row();
-
-        get_partial ('partials/page', get_row_layout( ) );
-
-    endwhile;
+	<?php
 
 
-endif;
+    while ( have_rows( 'content' ) ) {
+    	the_row();
+    	get_partial( 'partials/page-content' . get_row_layout() );
+    }
 
-?>
+	?>
+
 </div>
 <?php endwhile; ?>
 <?php get_footer(); ?>

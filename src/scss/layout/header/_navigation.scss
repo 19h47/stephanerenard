@@ -2,21 +2,16 @@
  * HEADER: NAVIGATION
  */
 
-.#{map-get( $namespaces,site )}
-{
-	&-nav // NAVIGATION ––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	{
-		
-		margin:
-		{
+.#{ map-get( $namespaces,site ) } {
+	&-nav {
+
+		margin: {
 			top: 3rem;
 		}
 		text-transform: uppercase;
 
 
-		@include at('xs')
-		{
-			
+		@include at( 'xs' ) {
 			position: fixed;
 			margin-top: 0;
 			// width: initial;
@@ -31,13 +26,11 @@
 			z-index: 6;
 		}
 
-		@at-root .menu--is-open &
-		{
+		@at-root .menu--is-open & {
 			transform: translate(0, 0);
 		}
 
-		&__button
-		{
+		&__button {
 			position: fixed;
 			@include size(4.4rem, 4.4rem);
 			margin: 2rem;
@@ -47,87 +40,73 @@
 			z-index: 10;
 			// background-color: map-get($colors, white);
 			@extend %button-reset;
-			background:
-			{
-				image: url('#{$svg-dir}stephanerenard_menu-close.svg');
+			background: {
+				image: url( '#{$svg-dir}stephanerenard_menu-close.svg' );
 				position: center;
 				repeat: no-repeat;
 				size: 4.4rem 2.8rem;
 			}
 			transition: .3s ease;
 
-			@at-root .menu--is-open &
-			{
-				background:
-				{
-					image: url('#{$svg-dir}stephanerenard_menu-open.svg');
+			@at-root .menu--is-open & {
+				background: {
+					image: url( '#{$svg-dir}stephanerenard_menu-open.svg' );
 					size: 3.5rem 3.5rem;
 				}
 			}
 		}
 
-		&__inner
-		{
+		&__inner {
 			margin-top: 17rem;
 			// Prevent display inline-block whitepace
 			font-size: 0;
 
-			@include from('sm')
-			{
+			@include from( 'sm' ) {
 				margin-top: 0;
 			}
 		}
 
-		&__item
-		{
+		&__item {
 			position: relative;
-			color: map-get($colors, red-very-dark-grayish);
-			font:
-			{
+			color: map-get( $colors, red-very-dark-grayish );
+			font: {
 				family: $font-title-family;
 				size: 1.2rem;
-				weight: map-get($font-weight, bold);
+				weight: map-get( $font-weight, bold );
 			}
-			@include letter-spacing(100);
-			line-height: (15/12);
+			@include letter-spacing( 100 );
+			line-height: ( 15 / 12 );
 			// white-space: nowrap;
 			text-align: right;
 			vertical-align: top;
 
-			@include at('xs')
-			{
+			@include at( 'xs' ) {
 				display: block;
 				margin: 3rem 0;
 				width: 100%;
-				color: map-get($colors, white);
-				font:
-				{
+				color: map-get( $colors, white );
+				font: {
 					size: 2.3rem;
 				}
 				line-height: (25/23);
 				text-align: center;
 			}
 
-			& a
-			{
-				@include from('sm')
-				{
+			& a {
+				@include from( 'sm' ) {
 					float: right;
 				}
 			}
-			
-			@include from('sm')
-			{
-				& a::after
-				{
+
+			@include from( 'sm' ) {
+				& a::after {
 					display: block;
 					position: absolute;
 					bottom: calc(100% + 2rem);
 					left: 0;
 					right: 100%;
 					height: 1rem;
-					background: 
-					{
+					background: {
 						color: map-get($colors, cyan-slightly-desaturated);
 					}
 					content: '';
@@ -142,20 +121,17 @@
 
 					}
 				}
-				
-				&.current-menu-item
-				{
-					& a::after
-					{
+
+				&.current-menu-item {
+					& a::after {
 						display: block;
 						position: absolute;
 						bottom: calc( 100% + 2rem );
 						left: 0;
 						right: 0;
 						height: 1rem;
-						background: 
-						{
-							color: map-get($colors, cyan-slightly-desaturated);
+						background: {
+							color: map-get( $colors, cyan-slightly-desaturated );
 						}
 						content: '';
 						transition: right 0.3s ease;
@@ -163,12 +139,11 @@
 				}
 			}
 
-			&__link
-			{
+			&__link {
 				// padding: (10/14) * 1em;
 				position: relative;
 				z-index: 5;
-				
+
 			}
 		}
 	}

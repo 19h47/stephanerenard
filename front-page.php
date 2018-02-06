@@ -11,8 +11,7 @@
 						<?php bloginfo( 'description' ); ?>
 					</span><br>
 					<span class="home-description__profession color-blue-very-dark is-on-top">
-						Soins énergétiques, magnétisme<br>
-						& psycho-énergie
+						<?php the_field( 'description' ) ?>
 					</span>
 				</p>
 

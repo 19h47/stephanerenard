@@ -2,12 +2,10 @@
  * HEADER
  */
 
-.#{ map-get($namespaces, site) }
-{
+.#{ map-get( $namespaces, site ) } {
 	&-header // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 	{
-		&__inner
-		{
+		&__inner {
 			min-height: 8rem;
 		}
 

@@ -139,15 +139,21 @@ var map = {
             // console.log( 'Coordonnées 01 = ' + wp.map_lat_01  + ' ' + wp.map_lng_01);
             var location_01 = [wp.map_lat_01, wp.map_lng_01, wp.map_title_01];
             // console.log(location_01);
+
+            this._locations.push(location_01);
         }
 
         if(wp.map_lat_02 && wp.map_lng_02 || wp.map_title_02) {
             // console.log( 'Coordonnées 02 = ' + wp.map_lat_02  + ' ' + wp.map_lng_02);
             var location_02 = [wp.map_lat_02, wp.map_lng_02, wp.map_title_02];
             // console.log(location_02);
+
+            this._locations.push(location_02);
         }
 
-        this._locations.push(location_01, location_02);
+        if (!this._locations) {
+            return false;
+        }
 
         console.log(this._locations);
 

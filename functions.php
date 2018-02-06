@@ -20,17 +20,22 @@ function stephanerenard_setup() {
      */
     add_theme_support( 'title-tag' );
 
+
     /*
      * Switch default core markup for search form, comment form, and comments
      * to output valid HTML5.
      */
-    add_theme_support( 'html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-    ) );
+    add_theme_support(
+        'html5',
+        array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+        )
+    );
+
 
     /*
      * Enable support for Post Thumbnails on posts and pages.
@@ -41,9 +46,11 @@ function stephanerenard_setup() {
     set_post_thumbnail_size( 1600 );
 
     // register 1 menu used in the theme
-    register_nav_menus( array(
-        'primary'   => 'Navigation principale (header)',
-    ) );
+    register_nav_menus(
+        array(
+            'primary'   => 'Navigation principale (header)',
+        )
+    );
 
     /*
      * This theme styles the visual editor to resemble the theme style,
@@ -119,18 +126,22 @@ function stephanerenard_add_custom_assets() {
         // App
         wp_register_script( 'stephanerenard-app', get_template_directory_uri() . '/dist/js/min/app.min.js', array( 'stephanerenard-functions' ), null, true );
 
-        wp_localize_script( 'stephanerenard-app', 'wp', array(
-            'template_directory_uri'    => get_template_directory_uri(),
-            'home_url'                  => home_url( '/' ),
-            'base_url'                  => site_url(),
-            'map_lat_01'                => get_option( 'map_lat_01' ),
-            'map_lng_01'                => get_option( 'map_lng_01' ),
-            'map_title_01'              => get_option( 'map_title_01' ),
-            'map_lat_02'                => get_option( 'map_lat_02' ),
-            'map_lng_02'                => get_option( 'map_lng_02' ),
-            'map_title_02'              => get_option( 'map_title_02' ),
-            'map_zoom'                  => get_option( 'map_zoom' )
-        ) );
+        wp_localize_script(
+            'stephanerenard-app',
+            'wp',
+            array(
+                'template_directory_uri'    => get_template_directory_uri(),
+                'home_url'                  => home_url( '/' ),
+                'base_url'                  => site_url(),
+                'map_lat_01'                => get_option( 'map_lat_01' ),
+                'map_lng_01'                => get_option( 'map_lng_01' ),
+                'map_title_01'              => get_option( 'map_title_01' ),
+                'map_lat_02'                => get_option( 'map_lat_02' ),
+                'map_lng_02'                => get_option( 'map_lng_02' ),
+                'map_title_02'              => get_option( 'map_title_02' ),
+                'map_zoom'                  => get_option( 'map_zoom' )
+            )
+        );
 
         // Homepage
         wp_register_script( 'stephanerenard-home', get_template_directory_uri() . '/dist/js/min/home.min.js', array( 'stephanerenard-functions' ), null, true );
@@ -336,9 +347,9 @@ add_filter( 'nav_menu_css_class', 'stephanerenard_nav_menu_css_class', 10, 4 );
 function stephanerenard_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
     $atts['class'] = 'site-nav__item__link';
 
-    $menu_items = array('Contact');
-    if (in_array($item->title, $menu_items)) {
-      $atts['class'] = 'site-nav__item__link js-anchor';
+    $menu_items = array( 'Contact' );
+    if ( in_array( $item->title, $menu_items ) ) {
+        $atts['class'] = 'site-nav__item__link js-anchor';
     }
 
     return $atts;
