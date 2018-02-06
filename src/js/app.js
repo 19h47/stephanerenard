@@ -1,8 +1,8 @@
 var app = {
-    
+
     // constants
     __NAMESPACE__: '.app',
-    
+
     // private
     _body_scrollLeft: 0,
     _body_scrollTop: 0,
@@ -22,10 +22,10 @@ var app = {
 
     // functions
     init: function() {
-        console.info('app.init');
-        
+        /// console.info('app.init');
+
         var _this = this;
-        
+
         this.$body = $('body');
 
         this.is_mobile = true;
@@ -36,13 +36,13 @@ var app = {
         this._initEvents();
 
        $(document).on("ready page:change", function() {
-    
+
             _this.$body
                 .removeClass('first-loading')
                 .addClass(_this._class_body_ready);
         });
 
-            
+
     },
     destroy: function() {
         // console.info('app.destroy');

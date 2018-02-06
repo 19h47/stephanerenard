@@ -1,13 +1,13 @@
 <?php
 
 /**
- * 
+ *
  * @param WP_Customize_Manager $wp_customize Customizer object.
  */
 function stephanerenard_customize_register( $wp_customize ) {
-    
+
     // Add company section -----------------------------------------------------
-    
+
     $wp_customize->add_section( 'company', array(
         'title' => 'Informations de contact',
     ) );
@@ -129,16 +129,22 @@ function stephanerenard_customize_register( $wp_customize ) {
         'transport' => 'postMessage',
     ) );
 
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'map_zoom', array(
-        'label'     => 'Zoom',
-        'section'   => 'map',
-        'settings'  => 'map_zoom',
-        // 'type'      => 'number',
-    ) ) );
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'map_zoom',
+            array(
+                'label'     => 'Zoom',
+                'section'   => 'map',
+                'settings'  => 'map_zoom',
+                // 'type'      => 'number',
+            )
+        )
+    );
 
 
     // Add socials section -----------------------------------------------------
-    
+
     $wp_customize->add_section( 'socials', array(
         'title' => 'Réseaux sociaux',
     ) );
@@ -156,7 +162,7 @@ function stephanerenard_customize_register( $wp_customize ) {
         'settings'  => 'social_facebook',
         'type'      => 'url',
     ) ) );
-    
+
     // TWITTER
     $wp_customize->add_setting( 'social_twitter', array(
         'type'      => 'option',
@@ -169,7 +175,7 @@ function stephanerenard_customize_register( $wp_customize ) {
         'settings'  => 'social_twitter',
         'type'      => 'url',
     ) ) );
-    
+
     // GOOGLE +
     $wp_customize->add_setting( 'social_googleplus', array(
         'type'      => 'option',
@@ -213,7 +219,7 @@ function stephanerenard_customize_register( $wp_customize ) {
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_img_second', array(
         'label'      => __( 'Sélectionnez la seconde photo', 'stephanerenard' ),
         'section'    => 'footer',
-        'settings'   => 'footer_img_second', 
+        'settings'   => 'footer_img_second',
     ) ) );
 
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_img_third', array(

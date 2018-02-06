@@ -128,14 +128,18 @@ var map = {
     _locations: [],
     _marker: null,
 
+    _bounds: null,
+
     init: function() {
         console.log('map.init');
 
         this._el = document.getElementById('map');
 
+        this._bounds = new google.maps.LatLngBounds();
+
         if (typeof(this._el) === 'undefined' || this._el === null) return;
 
-        if(wp.map_lat_01 && wp.map_lng_01 || wp.map_title_01 ) {
+        if (wp.map_lat_01 && wp.map_lng_01 || wp.map_title_01 ) {
             // console.log( 'Coordonnées 01 = ' + wp.map_lat_01  + ' ' + wp.map_lng_01);
             var location_01 = [wp.map_lat_01, wp.map_lng_01, wp.map_title_01];
             // console.log(location_01);
@@ -143,7 +147,7 @@ var map = {
             this._locations.push(location_01);
         }
 
-        if(wp.map_lat_02 && wp.map_lng_02 || wp.map_title_02) {
+        if (wp.map_lat_02 && wp.map_lng_02 || wp.map_title_02) {
             // console.log( 'Coordonnées 02 = ' + wp.map_lat_02  + ' ' + wp.map_lng_02);
             var location_02 = [wp.map_lat_02, wp.map_lng_02, wp.map_title_02];
             // console.log(location_02);
@@ -155,10 +159,11 @@ var map = {
             return false;
         }
 
-        console.log(this._locations);
+        // console.log(this._locations);
 
         this._options = $.extend(this._options, {
             zoom: Number(wp.map_zoom),
+            maxZoom: Number(wp.map_zoom),
             center: {
                 lat: 47.21837,
                 lng: -1.55362
@@ -182,20 +187,31 @@ var map = {
             url: wp.template_directory_uri + '/img/svg/stephanerenard_marker.svg',
         };
 
-        for (i = 0; i < this._locations.length; i++)
-        {
-            // console.log(this._locations[i][0] + ' ' + this._locations[i][1])
+        for (i = 0; i < this._locations.length; i++) {
+            // console.log(this._locations[i][0], this._locations[i][1])
             this.marker = new google.maps.Marker({
                 position: new google.maps.LatLng(this._locations[i][0], this._locations[i][1]),
                 icon: this._icon,
                 animation: google.maps.Animation.DROP,
                 map: this._instance,
-                title: this._locations[i][2]
             });
+
+
+            if (!this._locations[i][2]) {
+                this.marker.title = this._locations[i][2];
+            }
+
+            this._bounds.extend(this.marker.position);
         };
+
+        this._instance.fitBounds(this._bounds);
+
+        // this._instance.setCenter(this.marker.getPosition());
 
         this._initEvents();
     },
+
+
     _initEvents: function() {
         var _this = this;
 
@@ -203,6 +219,8 @@ var map = {
         //     _this.allowMouseWheelScrolling(true);
         // });
     },
+
+
     allowMouseWheelScrolling: function(allow) {
         var _this = this;
 

@@ -3,11 +3,9 @@
  */
 
 .#{ map-get( $namespaces, site ) } {
-	&-header // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-	{
+	&-header {
 		&__inner {
 			min-height: 8rem;
 		}
-
 	}
 }

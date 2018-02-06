@@ -2,7 +2,7 @@
  * HEADER: NAVIGATION
  */
 
-.#{ map-get( $namespaces,site ) } {
+.#{ map-get( $namespaces, site ) } {
 	&-nav {
 
 		margin: {
@@ -21,27 +21,32 @@
 			top: 0;
 			height: 100%;
 			width: 100%;
-			background-color:map-get($colors, blue-very-dark);
-			transform: translate(0, -100%);
+			background-color: map-get( $colors, blue-very-dark );
+			transform: translate( 0, -100% );
 			z-index: 6;
 		}
 
+
 		@at-root .menu--is-open & {
-			transform: translate(0, 0);
+			transform: translate( 0, 0 );
 		}
 
+
 		&__button {
-			position: fixed;
-			@include size(4.4rem, 4.4rem);
+			@include size( 4.4rem, 4.4rem );
+			@extend %button-reset;
+
 			margin: 2rem;
 			// padding: 2rem;
+
+			position: fixed;
 			top: 0;
 			left: 0;
 			z-index: 10;
-			// background-color: map-get($colors, white);
-			@extend %button-reset;
+
+			// background-color: map-get( $colors, white );
 			background: {
-				image: url( '#{$svg-dir}stephanerenard_menu-close.svg' );
+				image: url( '#{ $svg-dir }stephanerenard_menu-close.svg' );
 				position: center;
 				repeat: no-repeat;
 				size: 4.4rem 2.8rem;
@@ -50,11 +55,12 @@
 
 			@at-root .menu--is-open & {
 				background: {
-					image: url( '#{$svg-dir}stephanerenard_menu-open.svg' );
+					image: url( '#{ $svg-dir }stephanerenard_menu-open.svg' );
 					size: 3.5rem 3.5rem;
 				}
 			}
 		}
+
 
 		&__inner {
 			margin-top: 17rem;
@@ -66,7 +72,10 @@
 			}
 		}
 
+
 		&__item {
+			@include letter-spacing( 100 );
+
 			position: relative;
 			color: map-get( $colors, red-very-dark-grayish );
 			font: {
@@ -74,7 +83,6 @@
 				size: 1.2rem;
 				weight: map-get( $font-weight, bold );
 			}
-			@include letter-spacing( 100 );
 			line-height: ( 15 / 12 );
 			// white-space: nowrap;
 			text-align: right;
@@ -88,7 +96,7 @@
 				font: {
 					size: 2.3rem;
 				}
-				line-height: (25/23);
+				line-height: ( 25 / 23 );
 				text-align: center;
 			}
 
@@ -102,23 +110,20 @@
 				& a::after {
 					display: block;
 					position: absolute;
-					bottom: calc(100% + 2rem);
+					bottom: calc( 100% + 2rem );
 					left: 0;
 					right: 100%;
 					height: 1rem;
 					background: {
-						color: map-get($colors, cyan-slightly-desaturated);
+						color: map-get( $colors, cyan-slightly-desaturated );
 					}
 					content: '';
 					transition: right 0.3s ease;
 				}
 
-				&:hover
-				{
-					& a::after
-					{
+				&:hover {
+					& a::after {
 						right: 0;
-
 					}
 				}
 
@@ -143,7 +148,6 @@
 				// padding: (10/14) * 1em;
 				position: relative;
 				z-index: 5;
-
 			}
 		}
 	}
