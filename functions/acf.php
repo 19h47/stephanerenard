@@ -18,7 +18,7 @@ endif;
 
 // -----------------------------------------------------------------------------
 
-if ( function_exists( 'eae_encode_emails' ) && ! function_exists( 'acf_encode_emails' ) ) : 
+if ( function_exists( 'eae_encode_emails' ) && ! function_exists( 'acf_encode_emails' ) ) :
 
 /**
  * Encode emails inside ACF.
@@ -40,7 +40,7 @@ endif;
 
 // -----------------------------------------------------------------------------
 
-if ( ! function_exists( 'acf_wrap_oembed' ) ) : 
+if ( ! function_exists( 'acf_wrap_oembed' ) ) :
 
 /**
  * Wrap oEmbed fields with the native WP oEmbed container.
@@ -141,3 +141,21 @@ function the_image_field( $image, $size = null, $args = array() ) {
 endif;
 
 // -----------------------------------------------------------------------------
+
+add_filter('acf/settings/save_json', 'acf_json_save_point');
+
+/**
+ * acf_json_save_point
+ *
+ * @param   $path
+ * @see     https://www.advancedcustomfields.com/resources/local-json/
+ * @return  $path
+ */
+function acf_json_save_point( $path ) {
+
+    // update path
+    $path = get_stylesheet_directory() . '/acf-export';
+
+    // return
+    return $path;
+}
