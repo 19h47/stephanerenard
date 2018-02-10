@@ -1,143 +1,120 @@
-<section id="consultations-tarifs" class="site-section">
+<?php
 
-	<?php if ( is_front_page() ) : ?>
+/**
+ * Content Consultations tarifs
+ */
+
+////////////////
+// Controller //
+////////////////
+
+$consultations_tarifs_id = 20;
+
+$fields = get_fields( $consultations_tarifs_id );
+
+$sections = array(
+	array(
+		'title'			=> $fields['title_first'],
+		'description'	=> $fields['description_first'],
+		'text'			=> $fields['text_first'],
+		'icon'			=> get_template_directory_uri() . '/dist/svg/icons.svg#stephanerenard_icons_soin-des-equilibres',
+	),
+	array(
+		'title'			=> $fields['title_second'],
+		'description'	=> $fields['description_second'],
+		'text'			=> $fields['text_second'],
+		'icon'			=> get_template_directory_uri() . '/dist/svg/icons.svg#stephanerenard_icons_projet-sens',
+	),
+	array(
+		'title'			=> $fields['title_third'],
+		'description'	=> $fields['description_third'],
+		'text'			=> $fields['text_third'],
+		'icon'			=> get_template_directory_uri() . '/dist/svg/icons.svg#stephanerenard_icons_soin-des-masques',
+	),
+	array(
+		'title'			=> $fields['title_fourth'],
+		'description'	=> $fields['description_fourth'],
+		'text'			=> $fields['text_fourth'],
+		'icon'			=> get_template_directory_uri() . '/dist/svg/icons.svg#stephanerenard_icons_mission-de-vie',
+	),
+	array(
+		'title'			=> $fields['title_fifth'],
+		'description'	=> $fields['description_fifth'],
+		'text'			=> $fields['text_fifth'],
+		'icon'			=> get_template_directory_uri() . '/dist/svg/icons.svg#stephanerenard_icons_soin-des-freins',
+	),
+);
+
+
+$output = '';
+$i = 0;
+
+foreach ( $sections as $section ) {
+	$output .= '<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">';
+
+	// SVG
+	$output .= '<svg class="icon--consultations-rates" role="img">';
+	$output .= "<use xlink:href=\"{$section['icon']}\"/>";
+	$output .= '</svg>';
+
+	// Title
+	if ( $section['title'] ) {
+		$output .= '<div class="h4 color-blue-very-dark uppercase consultations-rates__title is-on-top">';
+		$output .= $section['title'];
+		$output .= '</div>';
+	}
+
+	// Description
+	if ( $section['description'] ) {
+		$output .= '<div class="consultations-rates__text is-on-top">';
+		$output .= $section['description'];
+		$output .= '</div>';
+	}
+
+	if ( ! is_front_page() ) {
+		$output .= "<div class=\"is-on-top\">{$section['text']}</div>";
+	}
+
+	$output .= '</article>';
+
+	$i++;
+
+	if ( $i === count( $section ) && is_front_page() ) {
+
+		$output .= '<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">';
+
+		$output .= '<a href="' . get_permalink( $consultations_tarifs_id ) . '#consultations-tarifs" ';
+		$output .= 'class="btn consultations-rates__btn uppercase font-bold btn--blue-very-dark is-on-top">';
+
+		$output .= __( 'En savoir plus', 'stephanerenard' );
+
+		$output .= '<span class="btn--decor-after"><svg role="img">';
+
+		$output .= '<use xlink:href="';
+		$output .= get_template_directory_uri();
+		$output .= '/dist/svg/icons.svg#stephanerenard_button-after"/>';
+
+		$output .= '</svg></span></a></article>';
+	}
+
+    if ( $i % 2 === 0 ) {
+        $output .= '</div><div class="col-xs-10 col-sm-3 col-xs-offset-1">';
+    }
+}
+
+//////////
+// View //
+//////////
+?><section id="consultations-tarifs" class="site-section"><?php
+
+	if ( is_front_page() ) : ?>
 
 		<div class="site-secton__inner col-xs-12 text-xs-center is-on-top color-blue-very-dark">
-			<h2>
-				Consultation & tarifs
-			</h2>
+			<?php echo "<h2>{$fields['title']}</h2>" ?>
 		</div>
 
-	<?php endif; ?>
+	<?php endif;
 
-	<div class="row">
-		<div class="col-xs-10 col-sm-3 col-xs-offset-1">
+	echo "<div class=\"row\"><div class=\"col-xs-10 col-sm-3 col-xs-offset-1\">{$output}</div></div>";
 
-			<?php if ( get_field( 'title_first', 20 ) || get_field( 'description_first', 20 ) || get_field( 'text_first', 20 ) ) : ?>
-				<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">
-					<svg id="" class="icon--consultations-rates" role="img">
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/dist/svg/icons.svg#stephanerenard_icons_soin-des-equilibres"/>
-					</svg>
-					<div class="h4 color-blue-very-dark uppercase consultations-rates__title is-on-top">
-						<?php the_field('title_first', 20); ?>
-					</div>
-					<div class="consultations-rates__text is-on-top">
-						<?php the_field('description_first', 20); ?>
-					</div>
-
-					<?php if( !is_front_page() ): ?>
-					<div class="is-on-top">
-						<?php the_field('text_first'); ?>
-					</div>
-					<?php endif; ?>
-
-				</article>
-			<?php endif; ?>
-
-			<?php if ( get_field( 'title_second', 20 ) || get_field( 'description_second', 20 ) || get_field( 'text_second', 20 ) ) : ?>
-				<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">
-					<svg id="" class="icon--consultations-rates" role="img">
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/dist/svg/icons.svg#stephanerenard_icons_projet-sens"/>
-					</svg>
-					<p class="h4 color-blue-very-dark uppercase consultations-rates__title is-on-top">
-						<?php the_field( 'title_second', 20 ); ?>
-					</p>
-					<p class="consultations-rates__text is-on-top">
-						<?php the_field( 'description_second', 20 ); ?>
-					</p>
-
-					<?php if( ! is_front_page() ) : ?>
-					<div class="is-on-top">
-						<?php the_field( 'text_second' ); ?>
-					</div>
-					<?php endif; ?>
-
-				</article>
-			<?php endif; ?>
-
-		</div>
-		<div class="col-xs-10 col-sm-3 col-xs-offset-1">
-
-			<?php if( get_field( 'title_third', 20 ) || get_field( 'description_third', 20 ) || get_field( 'text_third', 20 ) ) : ?>
-				<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">
-					<svg id="" class="icon--consultations-rates" role="img">
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/dist/svg/icons.svg#stephanerenard_icons_soin-des-masques"/>
-					</svg>
-					<p class="h4 color-blue-very-dark uppercase consultations-rates__title is-on-top">
-						<?php the_field( 'title_third', 20 ); ?>
-					</p>
-					<p class="consultations-rates__text is-on-top">
-						<?php the_field( 'description_third', 20 ); ?>
-					</p>
-
-					<?php if( ! is_front_page() ) : ?>
-					<div class="is-on-top">
-						<?php the_field( 'text_third' ); ?>
-					</div>
-					<?php endif; ?>
-
-				</article>
-			<?php endif; ?>
-
-			<?php if( get_field( 'title_fourth', 20 ) || get_field( 'description_fourth', 20 ) || get_field( 'text_fourth', 20 ) ) : ?>
-				<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">
-					<svg id="" class="icon--consultations-rates" role="img">
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/dist/svg/icons.svg#stephanerenard_icons_mission-de-vie"/>
-					</svg>
-					<p class="h4 color-blue-very-dark uppercase consultations-rates__title is-on-top">
-						<?php the_field( 'title_fourth', 20 ); ?>
-					</p>
-					<p class="consultations-rates__text is-on-top">
-						<?php the_field( 'description_fourth', 20 ); ?>
-					</p>
-
-					<?php if( ! is_front_page() ) : ?>
-					<div class="is-on-top">
-						<?php the_field( 'text_fourth' ); ?>
-					</div>
-					<?php endif; ?>
-
-				</article>
-			<?php endif; ?>
-
-		</div>
-		<div class="col-xs-10 col-sm-3 col-xs-offset-1">
-			<?php if( get_field( 'title_fifth', 20 ) || get_field( 'description_fifth', 20 ) || get_field( 'text_fifth', 20 ) ) : ?>
-			<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">
-				<svg id="" class="icon--consultations-rates" role="img">
-					<use xlink:href="<?php echo get_template_directory_uri() ?>/dist/svg/icons.svg#stephanerenard_icons_soin-des-freins"/>
-				</svg>
-				<p class="h4 color-blue-very-dark uppercase consultations-rates__title is-on-top">
-					<?php the_field( 'title_fifth', 20 ); ?>
-				</p>
-				<p class="consultations-rates__text is-on-top">
-					<?php the_field( 'description_fifth', 20 ); ?>
-				</p>
-
-				<?php if( ! is_front_page() ): ?>
-				<div class="is-on-top">
-					<?php the_field('text_fifth'); ?>
-				</div>
-				<?php endif; ?>
-
-			</article>
-			<?php endif; ?>
-
-			<?php if( is_front_page() ): ?>
-
-			<article class="js-consultations-rates consultations-rates text-xs-center text-sm-left">
-				<a href="<?php the_permalink( 20 ) ?>#consultations-tarifs" class="btn consultations-rates__btn uppercase font-bold btn--blue-very-dark is-on-top">
-					<?php _e( 'En savoir plus', 'stephanerenard' ) ?>
-					<span class="btn--decor-after">
-						<svg id="" class="" role="img">
-							<use xlink:href="<?php echo get_template_directory_uri() ?>/dist/svg/icons.svg#stephanerenard_button-after"/>
-						</svg>
-					</span>
-				</a>
-			</article>
-
-			<?php endif; ?>
-
-		</div>
-	</div>
-</section>
+?></section>
