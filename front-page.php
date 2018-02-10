@@ -52,7 +52,7 @@
 
 		<?php
 
-		get_partial( 'partials/content', 'consultations-tarifs' );
+		get_partial( 'partials/content/consultations-tarifs', null );
 
 		$args = array(
 			'post_type'			=> 'post',
@@ -90,7 +90,7 @@
 
 					while ( $query->have_posts() ) {
 						$query->the_post();
-						get_partial( 'partials/content', 'article' );
+						get_partial( 'partials/content/article', null );
 					}
 					wp_reset_postdata();
 
