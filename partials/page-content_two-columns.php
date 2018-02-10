@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * partials/page-content_two-columns
+ */
+
+?>
 <div class="page__two-columns row">
 
 	<div class="page__two-columns__article">
