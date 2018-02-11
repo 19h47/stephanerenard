@@ -29,7 +29,7 @@ $output_sections = '';
 foreach ( $sections as $section ) {
 
 	if ( $section['title'] ) {
-		$output_sections .=	'<h3 class="h4 is-on-top color-blue-very-dark">';
+		$output_sections .= '<h3 class="h4 is-on-top color-blue-very-dark">';
 		$output_sections .= $section['title'];
 		$output_sections .= '</h3>';
 	}
