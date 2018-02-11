@@ -55,9 +55,9 @@
 		get_partial( 'partials/content/consultations-tarifs', null );
 
 		$args = array(
-			'post_type'			=> 'post',
-		    'post_status' 		=> 'publish',
-		    'posts_per_page'	=> 3
+			'post_type'		=> 'post',
+		    	'post_status' 		=> 'publish',
+		    	'posts_per_page'	=> 3
 		);
 
 		$query = new WP_Query( $args );
