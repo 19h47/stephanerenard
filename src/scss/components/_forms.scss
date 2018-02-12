@@ -3,8 +3,7 @@
  */
 
 // PLACEHOLDER INPUTS
-%inputs
-{
+%inputs {
     appearance: none;
 	display: block;
 	width: 100%;
@@ -18,8 +17,7 @@
 }
 
 // PLACEHOLDER LABELS
-%labels
-{
+%labels {
 	display: block;
 	width: 100%;
 	margin-bottom: 2rem;
@@ -29,101 +27,80 @@
 }
 
 // PLACEHOLDER TEXTAREAS
-%textareas
-{
+%textareas {
 	@extend %inputs;
 	max-width: 100%;
 	min-height: 25rem;
 }
 
 // FIELD
-.field
-{
+.field {
 	margin-bottom: 5rem;
 
-	&--contact
-	{
-		&--left
-		{
+	&--contact {
+		&--left {
 			float: left;
 			width: calc(50% - 14px);
 		}
 
-		&--right
-		{
+		&--right {
 			float: right;
 			width: calc(50% - 14px);
-
 		}
 	}
 }
 
-.input
-{
+.input {
 	@extend %inputs;
-	border:
-	{
+	border: {
 		width: 1px;
 	}
 
-	&--contact
-	{
+	&--contact {
 		border-color: rgba(map-get($colors, black), 0.2);
 
-		&:focus
-		{
+		&:focus {
 			border-color: rgba(map-get($colors, black), 0.75);
 		}
-		&.error
-		{
+		&.error {
 			// border-color: rgba(map-get($colors, orange-strong ), 0.2);
 
-			&:focus
-			{
+			&:focus {
 				// border-color: rgba(map-get($colors, orange-strong ), 0.75);
 			}
 		}
 
-		&.valid
-		{
+		&.valid {
 			// border-color: rgba(map-get($colors, green-strong ), 0.2);
 
-			&:focus
-			{
+			&:focus {
 				// border-color: rgba(map-get($colors, green-strong ), 0.75);
 			}
 		}
 	}
 }
 
-.label
-{
+.label {
 	@extend %labels;
 
-	&--required
-	{
-		&::after
-		{
+	&--required {
+		&::after {
 			content: " *";
 		}
 	}
 }
 
-.textarea
-{
+.textarea {
 	@extend %textareas;
 
-	&--contact
-	{
+	&--contact {
 		border-color: rgba(map-get($colors, black), 0.2);
 
 
-		&:focus
-		{
+		&:focus {
 			border-color: rgba(map-get($colors, black), 0.75);
 		}
-		&.error
-		{
+		&.error {
 			// border-color: rgba(map-get($colors, orange-strong ), 0.2);
 
 			&:focus
@@ -132,31 +109,22 @@
 			}
 		}
 
-		&.valid
-		{
+		&.valid {
 			// border-color: rgba(map-get($colors, green-strong ), 0.2);
 
-			&:focus
-			{
+			&:focus {
 				// border-color: rgba(map-get($colors, green-strong ), 0.75);
 			}
 		}
 	}
 }
 
-.message
-{
+.message {
 	display: block;
 	margin-top: 1.5rem;
 	text-align: left;
 	
-	&.error
-	{
-		// color: map-get($colors, orange-strong );
-	}
+	// &.error { color: map-get($colors, orange-strong ); }
 
-	&.valid
-	{
-		// color: map-get($colors, green-strong);
-	}
+	// &.valid { color: map-get($colors, green-strong); }
 }
