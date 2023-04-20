@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "barba.js": "0.0.8",
-    "bootstrap-sass": "^3.3.6",
+    "bootstrap-sass": "^3.4.1",
     "breakpoint-sass": "^2.7.1",
     "breakpoint-slicer": "^2.0.0",
     "feature.js": "^1.0.0",
